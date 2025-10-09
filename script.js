@@ -100,7 +100,7 @@ whatsappForm.addEventListener('submit', (event) => {
     const alamat = document.getElementById('alamat').value;
 
     // Nomor WhatsApp tujuan
-    const noTujuan = '085173356206';
+    const noTujuan = '6285173356206';
 
     // Format pesan untuk WhatsApp
     const pesan = `Halo Massago, saya ingin memesan layanan pijat.
