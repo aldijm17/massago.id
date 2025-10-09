@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Massago Body Therapy - Relaksasi Profesional</title>
+    <link rel="icon" href="image/web-logo.png" style="border-radius: 100px;" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     
@@ -32,11 +33,11 @@
     <header class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
         <nav class="container mx-auto px-6 flex justify-between items-center h-16">
             <a href="#" class="flex items-center gap-x-3">
-                <img src="image/nav-logo.jpeg" alt="Massago Logo" class="h-12 transition-all duration-300">
+                <img src="image/nav-logo2.png" alt="Massago Logo" class="h-12 transition-all duration-300">
                 <span class="font-display font-bold text-xl md:text-2xl text-brand-blue">Massago.id</span>
             </a>
             
-            <ul class="hidden md:flex items-center space-x-8 text-base">
+            <ul class="hidden md:flex items-center space-x-8 text-base nav-links">
                 <li><a href="#services" class="font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
                 <li><a href="#practitioners" class="font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
                 <li><a href="#testimonials" class="font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
@@ -50,23 +51,24 @@
             </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <ul class="flex flex-col items-center space-y-4 py-4">
+            <ul class="flex flex-col items-center space-y-4 py-4 nav-links">
                 <li><a href="#services" class="font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
                 <li><a href="#practitioners" class="font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
                 <li><a href="#testimonials" class="font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
+                <li><a href="#order" class="font-medium text-slate-600 hover:text-brand-teal transition">Order</a></li>
                 <li><a href="#contact" class="font-medium text-slate-600 hover:text-brand-teal transition">Kontak</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <section class="hero-bg min-h-screen flex items-center justify-center pt-20">
+        <section id="hero" class="hero-bg min-h-screen flex items-center justify-center pt-20">
             <div class="text-center text-white p-6 max-w-3xl">
                 <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">Temukan Keseimbangan Tubuh dan Pikiran Anda</h1>
                 <p class="text-lg md:text-xl mb-8 opacity-90">Platform digital penyedia layanan massage dengan mudah dan terpercaya. Pesan praktisi berpengalaman untuk layanan di tempat atau di rumah Anda.</p>
-                <a href="https://wa.me/6282386908721" target="_blank" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
-                    Hubungi via WhatsApp
-                </a>
+                <button id="open-order-modal" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                    Reservasi via WhatsApp
+                </button>
             </div>
         </section>
 
@@ -100,7 +102,7 @@
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Praktisi Berpengalaman Kami</h2>
                 <p class="max-w-2xl mx-auto mb-10">Pelanggan bisa memilih terapis yang diinginkan. Saat ini tersedia 1 orang terapis.</p>
                 <div class="max-w-sm mx-auto bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-56 object-cover object-center" src="https://images.unsplash.com/photo-1558256327-02758f33d7d2?q=80&w=1887&auto-format&fit=crop" alt="Foto Praktisi">
+                    <img class="w-full h-56 object-cover object-center" src="image/image.png" alt="Foto Praktisi">
                     <div class="p-6">
                         <h3 class="font-display text-2xl font-bold text-brand-blue">Siti Aminah</h3>
                         <p class="text-brand-teal font-semibold mt-1">Spesialis Pijat Tradisional & Refleksi</p>
@@ -119,20 +121,24 @@
                 <cite class="block mt-4 font-semibold not-italic">- Andini Putri, Padang</cite>
             </div>
         </section>
-        <section class="py-20 bg-brand-blue scroll-reveal" id="order">
-            <div class="container mx-auto px-6 text-center text-white mb-8">
-                <h2 class="font-display text-4xl md:text-4xl font-bold mb-4">Siap untuk Merasa Lebih Baik?</h2>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Hubungi kami sekarang untuk konsultasi atau langsung buat janji temu. Tim kami siap membantu Anda.</p>
-                <a href="https://wa.me/6282386908721?text=Halo%20Massago,%20saya%20tertarik%20untuk%20memesan%20layanan%20pijat." target="_blank" class="bg-white text-brand-blue hover:bg-slate-200 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
-                    Reservasi via WhatsApp
-                </a>
-            </div>
+
+        <section id="order" class="py-20 bg-brand-blue scroll-reveal">
             <div class="container mx-auto px-6 text-center text-white">
-                <h2 class="font-display text-2xl md:text-2xl font-bold mb-4"> Atau Kunjungi Kami</h2>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Kunjungi kami ke Jl. Parkit 09, Air Tawar Barat. Kami menunggu kedatanangan anda.</p>
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Siap untuk Merasa Lebih Baik?</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Hubungi kami sekarang untuk konsultasi atau langsung buat janji temu. Tim kami siap membantu Anda.</p>
+                <button id="open-order-modal-2" class="bg-white text-brand-blue hover:bg-slate-200 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                    Reservasi via WhatsApp
+                </button>
+            </div>
+        </section>
+
+        <section id="location" class="py-20 bg-white scroll-reveal">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Kunjungi Kami</h2>
+                <p class="max-w-2xl mx-auto mb-10">Kami berlokasi di Jl. Parkit 09, Air Tawar Barat. Silakan gunakan peta di bawah ini untuk panduan arah.</p>
                 <div class="overflow-hidden rounded-lg shadow-lg">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.336188835105!2d100.35412807496526!3d-0.893214899092809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8ad1a300371%3A0x2942d992d50e8a8a!2sJl.%20Parkit%20IX%2C%20Air%20Tawar%20Bar.%2C%20Kec.%20Padang%20Utara%2C%20Kota%20Padang%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1696849491684!5m2!1sid!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.33005232822!2d100.3516893153438!3d-0.8900252354425628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8a2a2ffffff%3A0x7a4a8b5b5b5b5b5b!2sJl.%20Parkit%20IX%2C%20Air%20Tawar%20Bar.%2C%20Kec.%20Padang%20Utara%2C%20Kota%20Padang%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1668576615518!5m2!1sid!2sid"
                         width="100%"
                         height="450"
                         style="border:0;"
@@ -143,7 +149,7 @@
                 </div>
             </div>
         </section>
-        </main>
+    </main>
 
     <footer id="contact" class="bg-brand-dark text-white py-12">
         <div class="container mx-auto px-6 text-center">
@@ -151,9 +157,35 @@
             <p class="mt-2 text-slate-300"><strong>WhatsApp:</strong> 082386908721</p>
             <p class="text-slate-300"><strong>Alamat:</strong> Jl. Parkit 09, Air Tawar Barat, Padang</p>
             <p class="mt-4 text-slate-300"><strong>Media Sosial:</strong> <a href="#" class="underline hover:text-brand-teal">massago.unp</a></p>
-            <p class="mt-8 text-sm text-slate-400">&copy; 2025 Massago Body Therapy. All Rights Reserved.</p>
+            <p class="mt-8 text-sm text-slate-400">© 2025 Massago Body Therapy. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 md:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-display text-2xl font-bold text-brand-blue">Form Pemesanan</h3>
+                <button id="close-order-modal" class="text-slate-500 hover:text-slate-800">&times;</button>
+            </div>
+            <form id="whatsapp-form" class="space-y-4">
+                <div>
+                    <label for="nama" class="block text-sm font-medium text-slate-700">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal">
+                </div>
+                <div>
+                    <label for="telepon" class="block text-sm font-medium text-slate-700">No. Telepon (WhatsApp)</label>
+                    <input type="tel" id="telepon" name="telepon" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal">
+                </div>
+                <div>
+                    <label for="alamat" class="block text-sm font-medium text-slate-700">Alamat Lengkap</p>
+                    <textarea id="alamat" name="alamat" rows="3" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Lanjut ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
