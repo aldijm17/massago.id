@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap');
 
 /* Style untuk background hero section */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544161515-cfd636dc8fd5?q=80&w=2070&auto=format&fit=crop'); */
+/* Style untuk background hero section */
 .hero-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544161515-cfd636dc8fd5?q=80&w=2070&auto=format&fit=crop');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/young-woman-having-face-massage-relaxing-spa-salon.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Memberi efek parallax sederhana */
-}
+}/* Memberi efek parallax sederhana */
 /* ... (kode yang sudah ada jangan dihapus) ... */
 
 /* KODE BARU UNTUK ANIMASI SCROLL */
