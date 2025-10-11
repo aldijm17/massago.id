@@ -1,43 +1,168 @@
 /* Import Font dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap');
 
-/* Style untuk background hero section */
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544161515-cfd636dc8fd5?q=80&w=2070&auto=format&fit=crop'); */
-/* Style untuk background hero section */
+:root {
+    --brand-teal: #4b86b4;
+    --brand-blue: #2a4d69;
+}
+
+/* Base styles & Mobile-first */
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 10vw, 3.75rem); /* Flexible typography */
+}
+
+h2 {
+    font-size: clamp(1.875rem, 8vw, 2.25rem);
+}
+
 .hero-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/hero-background.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Memberi efek parallax sederhana */
-}/* Memberi efek parallax sederhana */
-/* ... (kode yang sudah ada jangan dihapus) ... */
+    background-attachment: fixed;
+}
 
-/* KODE BARU UNTUK ANIMASI SCROLL */
+/* Animasi & UX Improvements */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform; /* Memberitahu browser untuk optimasi */
 }
 
 .scroll-reveal.animate {
     opacity: 1;
     transform: translateY(0);
 }
-/* ... (kode yang sudah ada jangan dihapus) ... */
 
-/* KODE BARU UNTUK MENYEMBUNYIKAN SCROLLBAR */
+/* Stagger animation for service cards */
+.service-card:nth-child(2) {
+    transition-delay: 200ms;
+}
+.service-card:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+/* Hover effects */
+.service-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+/* CTA Button Pulse */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.cta-button {
+    animation: pulse 2s infinite;
+}
+
+/* Active Nav Indicator */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brand-teal);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav-link.active::after,
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Modal Animations */
+.modal {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modal-content {
+    transform: translateY(50px);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Scrollbar hiding */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-/* ... (kode yang sudah ada jangan dihapus) ... */
 
-/* KODE BARU UNTUK LINK NAVBAR YANG AKTIF */
-.nav-links a.active {
-    color: var(--brand-teal);
-    font-weight: 700;
+/* Background scroll lock */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Lazy Loading Skeleton */
+.skeleton {
+    background-color: #e2e8f0;
+    border-radius: 0.5rem;
+    animation: pulse-skeleton 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-skeleton {
+    50% {
+        opacity: .5;
+    }
+}
+.lazy-load {
+    display: none;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .cta-button {
+        animation: none;
+    }
+}
+/* Ornamen Background Responsif untuk Semua Section */
+.bg-ornaments {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M14.5 17.5c-2.5 2.5-6.5 2.5-9 0s-2.5-6.5 0-9 6.5-2.5 9 0 2.5 6.5 0 9z'%3E%3C/path%3E%3Cpath d='M12 8V2l-2.5 2.5'%3E%3C/path%3E%3Cpath d='M14.5 17.5C12 20 8 20 5.5 17.5S3 11.5 5.5 9s6.5-2.5 9 0'%3E%3C/path%3E%3Cpath d='M17 12h6v-2.5L19.5 7'%3E%3C/path%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M6 20 C3 20 3 17 6 17 C9 17 9 20 6 20 Z M10 17 C7 17 7 14 10 14 C13 14 13 17 10 17 Z M15 14 C12 14 12 11 15 11 C18 11 18 14 15 14 Z M19 11 C16 11 16 8 19 8 C22 8 22 11 19 11 Z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: top 0px left -50px, bottom 0px right -40px;
+    background-size: 200px, 150px;
+}
+
+/* Penyesuaian untuk layar kecil (HP) */
+@media (max-width: 767px) {
+    .bg-ornaments {
+        background-position: top 10px left -60px, bottom 10px right -50px;
+        background-size: 150px, 120px;
+    }
 }

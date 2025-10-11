@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
     
     <script>
-        // Konfigurasi custom font dan warna untuk Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -28,21 +27,21 @@
         }
     </script>
 </head>
-<body class="font-sans text-slate-700">
+<body class="font-sans text-slate-700 bg-brand-warm">
 
     <header class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
         <nav class="container mx-auto px-6 flex justify-between items-center h-16">
             <a href="#" class="flex items-center gap-x-3">
                 <img src="image/nav-logo2.png" alt="Massago Logo" class="h-12 transition-all duration-300">
-                <span class="font-display font-bold text-xl md:text-2xl text-brand-blue">Massago.id</span>
+                <span class="font-display font-bold text-xl md:text-2xl text-brand-blue">Massago</span>
             </a>
             
             <ul class="hidden md:flex items-center space-x-8 text-base nav-links">
-                <li><a href="#services" class="font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
-                <li><a href="#practitioners" class="font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
-                <li><a href="#testimonials" class="font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
-                <li><a href="#order" class="font-medium text-slate-600 hover:text-brand-teal transition">Order</a></li>
-                <li><a href="#contact" class="font-medium text-slate-600 hover:text-brand-teal transition">Kontak</a></li>
+                <li><a href="#services" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
+                <li><a href="#practitioners" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
+                <li><a href="#testimonials" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
+                <li><a href="#order" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Order</a></li>
+                <li><a href="#contact" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Kontak</a></li>
             </ul>
             <button id="mobile-menu-button" class="md:hidden p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,11 +51,11 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <ul class="flex flex-col items-center space-y-4 py-4 nav-links">
-                <li><a href="#services" class="font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
-                <li><a href="#practitioners" class="font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
-                <li><a href="#testimonials" class="font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
-                <li><a href="#order" class="font-medium text-slate-600 hover:text-brand-teal transition">Order</a></li>
-                <li><a href="#contact" class="font-medium text-slate-600 hover:text-brand-teal transition">Kontak</a></li>
+                <li><a href="#services" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Layanan</a></li>
+                <li><a href="#practitioners" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Praktisi</a></li>
+                <li><a href="#testimonials" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Testimoni</a></li>
+                <li><a href="#order" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Order</a></li>
+                <li><a href="#contact" class="nav-link font-medium text-slate-600 hover:text-brand-teal transition">Kontak</a></li>
             </ul>
         </div>
     </header>
@@ -66,30 +65,33 @@
             <div class="text-center text-white p-6 max-w-3xl">
                 <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">Temukan Keseimbangan Tubuh dan Pikiran Anda</h1>
                 <p class="text-lg md:text-xl mb-8 opacity-90">Platform digital penyedia layanan massage dengan mudah dan terpercaya. Pesan praktisi berpengalaman untuk layanan di tempat atau di rumah Anda.</p>
-                <button id="open-order-modal" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                <button id="open-order-modal" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block cta-button">
                     Reservasi via WhatsApp
                 </button>
             </div>
         </section>
 
-        <section id="services" class="py-20 bg-slate-50 scroll-reveal">
+        <section id="services" class="py-20 bg-slate-50">
             <div class="container mx-auto px-6">
                 <div class="text-center">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Layanan Profesional Kami</h2>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4 scroll-reveal">Layanan Profesional Kami</h2>
                 </div>
                 <div class="mt-12 flex space-x-6 pb-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-8 md:space-x-0 snap-x snap-mandatory scrollbar-hide">
-                    <div class="flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
-                        <img src="https://i.ibb.co/fHn4VvG/relax.png" alt="Ikon Pijat Tradisional" class="h-16 mx-auto mb-4">
+                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
+                        <img data-src="https://i.ibb.co/fHn4VvG/relax.png" alt="Ikon Pijat Tradisional" class="h-16 mx-auto mb-4 lazy-load">
+                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
                         <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Tradisional</h3>
                         <p class="leading-relaxed">Teknik pijat klasik untuk melancarkan peredaran darah dan meredakan pegal-pegal.</p>
                     </div>
-                    <div class="flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
-                        <img src="https://i.ibb.co/dK5rP9m/hot-stone.png" alt="Ikon Pijat Refleksi" class="h-16 mx-auto mb-4">
+                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
+                        <img data-src="https://i.ibb.co/dK5rP9m/hot-stone.png" alt="Ikon Pijat Refleksi" class="h-16 mx-auto mb-4 lazy-load">
+                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
                         <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Refleksi</h3>
                         <p class="leading-relaxed">Fokus pada titik-titik saraf di telapak kaki dan tangan untuk memulihkan kebugaran tubuh.</p>
                     </div>
-                    <div class="flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
-                        <img src="https://i.ibb.co/3Wb0zYd/treatment.png" alt="Ikon Pijat Aromaterapi" class="h-16 mx-auto mb-4">
+                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
+                        <img data-src="https://i.ibb.co/3Wb0zYd/treatment.png" alt="Ikon Pijat Aromaterapi" class="h-16 mx-auto mb-4 lazy-load">
+                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
                         <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Aromaterapi</h3>
                         <p class="leading-relaxed">Kombinasi pijatan lembut dengan minyak esensial untuk relaksasi pikiran dan tubuh.</p>
                     </div>
@@ -97,12 +99,13 @@
             </div>
         </section>
         
-        <section id="practitioners" class="py-20 scroll-reveal">
+        <section id="practitioners" class="py-20">
              <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Praktisi Berpengalaman Kami</h2>
-                <p class="max-w-2xl mx-auto mb-10">Pelanggan bisa memilih terapis yang diinginkan. Saat ini tersedia 1 orang terapis.</p>
-                <div class="max-w-sm mx-auto bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-56 object-cover object-center" src="image/image.png" alt="Foto Praktisi">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4 scroll-reveal">Praktisi Berpengalaman Kami</h2>
+                <p class="max-w-2xl mx-auto mb-10 scroll-reveal">Pelanggan bisa memilih terapis yang diinginkan. Saat ini tersedia 1 orang terapis.</p>
+                <div class="max-w-sm mx-auto bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 scroll-reveal">
+                    <img class="w-full h-56 object-cover object-center lazy-load" data-src="image/image.png" alt="Foto Praktisi">
+                    <div class="skeleton w-full h-56"></div>
                     <div class="p-6">
                         <h3 class="font-display text-2xl font-bold text-brand-blue">Siti Aminah</h3>
                         <p class="text-brand-teal font-semibold mt-1">Spesialis Pijat Tradisional & Refleksi</p>
@@ -112,8 +115,8 @@
              </div>
         </section>
 
-        <section id="testimonials" class="py-20 bg-brand-warm scroll-reveal">
-            <div class="container mx-auto px-6 max-w-3xl text-center">
+        <section id="testimonials" class="py-20 bg-brand-warm">
+            <div class="container mx-auto px-6 max-w-3xl text-center scroll-reveal">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-8">Apa Kata Klien Kami</h2>
                 <blockquote class="text-xl md:text-2xl font-display text-brand-blue/80 italic">
                     "Pelayanannya luar biasa profesional. Saya merasa jauh lebih segar dan rileks setelah sesi pertama. Sangat direkomendasikan!"
@@ -122,18 +125,18 @@
             </div>
         </section>
 
-        <section id="order" class="py-20 bg-brand-blue scroll-reveal">
-            <div class="container mx-auto px-6 text-center text-white">
+        <section id="order" class="py-20 bg-brand-blue">
+            <div class="container mx-auto px-6 text-center text-white scroll-reveal">
                 <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Siap untuk Merasa Lebih Baik?</h2>
                 <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Hubungi kami sekarang untuk konsultasi atau langsung buat janji temu. Tim kami siap membantu Anda.</p>
-                <button id="open-order-modal-2" class="bg-white text-brand-blue hover:bg-slate-200 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block">
+                <button id="open-order-modal-2" class="bg-white text-brand-blue hover:bg-slate-200 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block cta-button">
                     Reservasi via WhatsApp
                 </button>
             </div>
         </section>
 
-        <section id="location" class="py-20 bg-white scroll-reveal">
-            <div class="container mx-auto px-6 text-center">
+        <section id="location" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center scroll-reveal">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Kunjungi Kami</h2>
                 <p class="max-w-2xl mx-auto mb-10">Kami berlokasi di Jl. Parkit 09, Air Tawar Barat. Silakan gunakan peta di bawah ini untuk panduan arah.</p>
                 <div class="overflow-hidden rounded-lg shadow-lg">
@@ -151,8 +154,25 @@
         </section>
     </main>
 
-    <footer id="contact" class="bg-brand-dark text-white py-12">
-        <div class="container mx-auto px-6 text-center">
+    <footer id="contact" class="bg-brand-dark text-white py-12 relative overflow-hidden">
+        <div class="hidden md:block absolute -bottom-8 -left-8 text-white/5 transform -rotate-45" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+                <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+                <path d="M12 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+            </svg>
+        </div>
+
+        <div class="hidden md:block absolute -top-10 -right-12 text-white/5 transform rotate-12" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 17.5c-2.5 2.5-6.5 2.5-9 0s-2.5-6.5 0-9 6.5-2.5 9 0 2.5 6.5 0 9z"></path>
+                <path d="M12 8V2l-2.5 2.5"></path>
+                <path d="M14.5 17.5C12 20 8 20 5.5 17.5S3 11.5 5.5 9s6.5-2.5 9 0"></path>
+                <path d="M17 12h6v-2.5L19.5 7"></path>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
             <p class="font-bold">Kontak & Informasi</p>
             <p class="mt-2 text-slate-300"><strong>WhatsApp:</strong> 082386908721</p>
             <p class="text-slate-300"><strong>Alamat:</strong> Jl. Parkit 09, Air Tawar Barat, Padang</p>
@@ -161,11 +181,11 @@
         </div>
     </footer>
 
-    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 md:p-8">
+    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden modal">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 md:p-8 modal-content">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="font-display text-2xl font-bold text-brand-blue">Form Pemesanan</h3>
-                <button id="close-order-modal" class="text-slate-500 hover:text-slate-800">&times;</button>
+                <button id="close-order-modal" class="text-slate-500 hover:text-slate-800 text-3xl">&times;</button>
             </div>
             <form id="whatsapp-form" class="space-y-4">
                 <div>
