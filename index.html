@@ -217,32 +217,55 @@
         </section>
     </main>
 
-    <footer id="contact" class="bg-brand-dark text-white py-12 relative overflow-hidden">
-        <div class="hidden md:block absolute -bottom-8 -left-8 text-white/5 transform -rotate-45" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
-                <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
-                <path d="M12 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
-            </svg>
+    <footer id="contact" class="bg-brand-dark text-white pt-16 pb-8 relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-center md:justify-start gap-x-3">
+                    <img src="image/web-logo.png" alt="Massago Logo" class="h-12 bg-white/10 rounded-full p-1">
+                    <span class="font-display font-bold text-2xl">Massago</span>
+                </div>
+                <p class="text-slate-400 text-sm">
+                    Platform digital penyedia layanan pijat profesional untuk keseimbangan tubuh dan pikiran Anda.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="font-display font-bold text-xl">Navigasi</h3>
+                <ul class="space-y-2 text-slate-300">
+                    <li><a href="#services" class="hover:text-brand-teal transition">Layanan Kami</a></li>
+                    <li><a href="#practitioners" class="hover:text-brand-teal transition">Praktisi</a></li>
+                    <li><a href="#testimonials" class="hover:text-brand-teal transition">Testimoni</a></li>
+                    <li><a href="#join-us" class="hover:text-brand-teal transition">Gabung Sebagai Praktisi</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="font-display font-bold text-xl">Kontak & Informasi</h3>
+                <ul class="space-y-3 text-slate-300">
+                    <li class="flex items-center justify-center md:justify-start gap-x-3">
+                        <i class="bi bi-whatsapp text-brand-teal"></i>
+                        <span>082386604721</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-x-3">
+                        <i class="bi bi-geo-alt-fill text-brand-teal"></i>
+                        <span>Jl. Parkit 09, Air Tawar Barat, Padang</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-x-3">
+                        <i class="bi bi-instagram text-brand-teal"></i>
+                        <a href="#" class="hover:text-brand-teal transition">massago.unp</a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="hidden md:block absolute -top-10 -right-12 text-white/5 transform rotate-12" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 17.5c-2.5 2.5-6.5 2.5-9 0s-2.5-6.5 0-9 6.5-2.5 9 0 2.5 6.5 0 9z"></path>
-                <path d="M12 8V2l-2.5 2.5"></path>
-                <path d="M14.5 17.5C12 20 8 20 5.5 17.5S3 11.5 5.5 9s6.5-2.5 9 0"></path>
-                <path d="M17 12h6v-2.5L19.5 7"></path>
-            </svg>
+        <div class="mt-12 pt-8 border-t border-white/10 text-center text-sm text-slate-400">
+            <p>© 2025 Massago Body Therapy. All Rights Reserved.</p>
         </div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <p class="font-bold">Kontak & Informasi</p>
-            <p class="mt-2 text-slate-300"><strong>WhatsApp <i class="bi bi-whatsapp"></i></strong> 082386604721</p>
-            <p class="text-slate-300"><strong>Alamat <i class="bi bi-geo-alt"></i>:</strong> Jl. Parkit 09, Air Tawar Barat, Padang</p>
-            <p class="mt-4 text-slate-300"><strong>Instagram <i class="bi bi-instagram"></i></strong>  <a href="#" class="underline hover:text-brand-teal">: massago.unp</a></p>
-            <p class="mt-8 text-sm text-slate-400">© 2025 Massago Body Therapy. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </div>
+</footer>
 
     <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden modal">
         <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 md:p-8 modal-content">
