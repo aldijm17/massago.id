@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nama = document.getElementById('nama').value;
         const telepon = document.getElementById('telepon').value;
         const alamat = document.getElementById('alamat').value;
-        const noTujuan = '6285173356206';
+        const noTujuan = '6282386604721';
         const pesan = `Halo Massago, saya ingin memesan layanan pijat.\n\nNama : ${nama}\nNo. Telepon : ${telepon}\nAlamat : ${alamat}\n\nMohon informasinya lebih lanjut. Terima kasih.`;
         const urlWA = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
         
@@ -123,3 +123,73 @@ document.addEventListener('DOMContentLoaded', () => {
         closeModal();
     });
 });
+// --- TESTIMONIAL CAROUSEL ---
+const carousel = document.getElementById('testimonial-carousel');
+const slides = carousel.children;
+const totalSlides = slides.length;
+const nextBtn = document.getElementById('next-testimonial');
+const prevBtn = document.getElementById('prev-testimonial');
+const indicators = document.querySelectorAll('.carousel-indicator');
+
+let index = 0;
+
+function updateCarousel() {
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+  indicators.forEach((dot, i) => {
+    dot.classList.toggle('bg-brand-teal', i === index);
+    dot.classList.toggle('bg-slate-400', i !== index);
+    dot.classList.toggle('opacity-70', i === index);
+    dot.classList.toggle('opacity-50', i !== index);
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % totalSlides;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+});
+
+// Klik indikator manual
+indicators.forEach(dot => {
+  dot.addEventListener('click', () => {
+    index = parseInt(dot.dataset.slide);
+    updateCarousel();
+  });
+});
+
+// Auto slide setiap 6 detik
+setInterval(() => {
+  index = (index + 1) % totalSlides;
+  updateCarousel();
+}, 6000);
+
+// --- EFEK PARALAKS UNTUK HERO SECTION ---
+window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    if (!hero) return;
+
+    // Ambil nilai scroll dan sesuaikan kecepatan
+    const offset = window.scrollY * 0.4; // kecepatan efek
+    hero.style.backgroundPositionY = `${offset}px`;
+});
+// --- NAVBAR SHRINK ON SCROLL ---
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    header.classList.add('shadow-md', 'py-2');
+  } else {
+    header.classList.remove('shadow-md', 'py-2');
+  }
+});
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    header.classList.add('bg-white/90', 'backdrop-blur-sm');
+  } else {
+    header.classList.remove('bg-white/90', 'backdrop-blur-sm');
+  }
+});
+

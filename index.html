@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Massago Body Therapy - Relaksasi Profesional</title>
     <link rel="icon" href="image/web-logo.png" style="border-radius: 100px;" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     
@@ -29,11 +30,11 @@
 </head>
 <body class="font-sans text-slate-700 bg-brand-warm">
 
-    <header class="bg-white/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300">
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 flex justify-between items-center h-16">
             <a href="#" class="flex items-center gap-x-3">
                 <img src="image/nav-logo2.png" alt="Massago Logo" class="h-12 transition-all duration-300">
-                <span class="font-display font-bold text-xl md:text-2xl text-brand-blue">Massago</span>
+                <span class="font-display font-bold text-xl md:text-2xl logo-text">Massago</span>
             </a>
             
             <ul class="hidden md:flex items-center space-x-8 text-base nav-links">
@@ -65,39 +66,53 @@
             <div class="text-center text-white p-6 max-w-3xl">
                 <h1 class="font-display text-4xl md:text-6xl font-bold mb-4">Temukan Keseimbangan Tubuh dan Pikiran Anda</h1>
                 <p class="text-lg md:text-xl mb-8 opacity-90">Platform digital penyedia layanan massage dengan mudah dan terpercaya. Pesan praktisi berpengalaman untuk layanan di tempat atau di rumah Anda.</p>
-                <button id="open-order-modal" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block cta-button">
-                    Reservasi via WhatsApp
+                <button id="open-order-modal"
+                     class="bg-gradient-to-r from-brand-teal to-brand-blue hover:from-brand-blue hover:to-brand-teal text-white font-bold py-3 px-8 rounded-full text-lg transition duration-500 transform hover:scale-105 shadow-md hover:shadow-lg inline-block cta-button">
+                        Reservasi via WhatsApp
                 </button>
             </div>
         </section>
 
-        <section id="services" class="py-20 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4 scroll-reveal">Layanan Profesional Kami</h2>
-                </div>
-                <div class="mt-12 flex space-x-6 pb-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-8 md:space-x-0 snap-x snap-mandatory scrollbar-hide">
-                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
-                        <img data-src="https://i.ibb.co/fHn4VvG/relax.png" alt="Ikon Pijat Tradisional" class="h-16 mx-auto mb-4 lazy-load">
-                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
-                        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Tradisional</h3>
-                        <p class="leading-relaxed">Teknik pijat klasik untuk melancarkan peredaran darah dan meredakan pegal-pegal.</p>
-                    </div>
-                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
-                        <img data-src="https://i.ibb.co/dK5rP9m/hot-stone.png" alt="Ikon Pijat Refleksi" class="h-16 mx-auto mb-4 lazy-load">
-                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
-                        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Refleksi</h3>
-                        <p class="leading-relaxed">Fokus pada titik-titik saraf di telapak kaki dan tangan untuk memulihkan kebugaran tubuh.</p>
-                    </div>
-                    <div class="service-card flex-none w-4/5 md:w-auto snap-start bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center scroll-reveal">
-                        <img data-src="https://i.ibb.co/3Wb0zYd/treatment.png" alt="Ikon Pijat Aromaterapi" class="h-16 mx-auto mb-4 lazy-load">
-                        <div class="skeleton h-16 w-16 mx-auto mb-4"></div>
-                        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Aromaterapi</h3>
-                        <p class="leading-relaxed">Kombinasi pijatan lembut dengan minyak esensial untuk relaksasi pikiran dan tubuh.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="services" class="py-20 bg-gradient-to-b from-white to-brand-warm/30">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4 scroll-reveal">
+      Layanan Eksklusif Kami
+    </h2>
+    <p class="text-slate-600 max-w-2xl mx-auto mb-12 scroll-reveal">
+      Setiap sentuhan kami hadirkan dengan profesionalitas, kenyamanan, dan ketulusan untuk relaksasi terbaik Anda.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Pijat Aromaterapi -->
+      <div class="p-8 border border-brand-teal/20 rounded-2xl bg-white/70 backdrop-blur-sm shadow hover:shadow-lg transition duration-300 scroll-reveal">
+        <i class="bi bi-flower1 text-5xl text-brand-teal mb-4"></i>
+        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Aromaterapi</h3>
+        <p class="text-slate-600">
+          Relaksasi mendalam dengan kombinasi pijatan lembut dan aroma minyak esensial alami yang menenangkan.
+        </p>
+      </div>
+
+      <!-- Pijat Refleksi -->
+      <div class="p-8 border border-brand-teal/20 rounded-2xl bg-white/70 backdrop-blur-sm shadow hover:shadow-lg transition duration-300 scroll-reveal">
+        <i class="bi bi-hand-index-thumb text-5xl text-brand-teal mb-4"></i>
+        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Refleksi</h3>
+        <p class="text-slate-600">
+          Menstimulasi titik refleksi di kaki dan tangan untuk meningkatkan sirkulasi dan energi tubuh Anda.
+        </p>
+      </div>
+
+      <!-- Pijat Tradisional -->
+      <div class="p-8 border border-brand-teal/20 rounded-2xl bg-white/70 backdrop-blur-sm shadow hover:shadow-lg transition duration-300 scroll-reveal">
+        <i class="bi bi-heart-pulse-fill text-5xl text-brand-teal mb-4"></i>
+        <h3 class="font-display text-2xl font-bold text-brand-blue mb-2">Pijat Tradisional</h3>
+        <p class="text-slate-600">
+          Teknik klasik untuk melancarkan peredaran darah, mengurangi pegal, dan mengembalikan kebugaran tubuh Anda.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
         
         <section id="practitioners" class="py-20">
              <div class="container mx-auto px-6 text-center">
@@ -116,15 +131,54 @@
         </section>
 
         <section id="testimonials" class="py-20 bg-brand-warm">
-            <div class="container mx-auto px-6 max-w-3xl text-center scroll-reveal">
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-8">Apa Kata Klien Kami</h2>
-                <blockquote class="text-xl md:text-2xl font-display text-brand-blue/80 italic">
-                    "Pelayanannya luar biasa profesional. Saya merasa jauh lebih segar dan rileks setelah sesi pertama. Sangat direkomendasikan!"
-                </blockquote>
-                <cite class="block mt-4 font-semibold not-italic">- Andini Putri, Padang</cite>
-            </div>
-        </section>
+  <div class="container mx-auto px-6 max-w-3xl text-center scroll-reveal">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-8">Apa Kata Klien Kami</h2>
 
+    <!-- Carousel Wrapper -->
+    <div class="relative overflow-hidden">
+      <div id="testimonial-carousel" class="flex transition-transform duration-700 ease-in-out">
+        <!-- Testimoni 1 -->
+        <div class="w-full flex-shrink-0">
+          <blockquote class="text-xl md:text-2xl font-display text-brand-blue/80 italic">
+            "Pelayanannya luar biasa profesional. Saya merasa jauh lebih segar dan rileks setelah sesi pertama. Sangat direkomendasikan!"
+          </blockquote>
+          <cite class="block mt-4 font-semibold not-italic">- Andini Putri, Padang</cite>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="w-full flex-shrink-0">
+          <blockquote class="text-xl md:text-2xl font-display text-brand-blue/80 italic">
+            "Terapisnya ramah dan sangat berpengalaman. Layanan datang ke rumah sangat membantu di tengah kesibukan saya."
+          </blockquote>
+          <cite class="block mt-4 font-semibold not-italic">- Rudi Hartono, Bukittinggi</cite>
+        </div>
+
+        <!-- Testimoni 3 -->
+        <div class="w-full flex-shrink-0">
+          <blockquote class="text-xl md:text-2xl font-display text-brand-blue/80 italic">
+            "Saya sudah mencoba banyak tempat, tapi Massago paling nyaman. Harga sebanding dengan kualitas!"
+          </blockquote>
+          <cite class="block mt-4 font-semibold not-italic">- Siska Marlina, Padang Panjang</cite>
+        </div>
+      </div>
+
+      <!-- Tombol Navigasi -->
+      <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-brand-blue p-2 rounded-full shadow hover:bg-brand-teal hover:text-white transition">
+        <i class="bi bi-chevron-left text-2xl"></i>
+      </button>
+      <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-brand-blue p-2 rounded-full shadow hover:bg-brand-teal hover:text-white transition">
+        <i class="bi bi-chevron-right text-2xl"></i>
+      </button>
+
+      <!-- Indikator -->
+      <div class="flex justify-center mt-6 space-x-2">
+        <span class="carousel-indicator w-3 h-3 rounded-full bg-brand-teal opacity-70 cursor-pointer" data-slide="0"></span>
+        <span class="carousel-indicator w-3 h-3 rounded-full bg-slate-400 opacity-50 cursor-pointer" data-slide="1"></span>
+        <span class="carousel-indicator w-3 h-3 rounded-full bg-slate-400 opacity-50 cursor-pointer" data-slide="2"></span>
+      </div>
+    </div>
+  </div>
+        </section>
         <section id="order" class="py-20 bg-brand-blue">
             <div class="container mx-auto px-6 text-center text-white scroll-reveal">
                 <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Siap untuk Merasa Lebih Baik?</h2>
@@ -134,8 +188,8 @@
                 </button>
             </div>
         </section>
+        <section id="location" class="py-20 bg-gradient-to-b from-white to-brand-warm/50">
 
-        <section id="location" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center scroll-reveal">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Kunjungi Kami</h2>
                 <p class="max-w-2xl mx-auto mb-10">Kami berlokasi di Jl. Parkit 09, Air Tawar Barat. Silakan gunakan peta di bawah ini untuk panduan arah.</p>
@@ -150,6 +204,15 @@
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
+            </div>
+        </section>
+        <section id="join-us" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6 text-center scroll-reveal">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-blue mb-4">Bergabunglah dengan Tim Kami</h2>
+                <p class="max-w-2xl mx-auto mb-8 text-lg">Apakah Anda seorang terapis pijat profesional yang ingin menjangkau lebih banyak klien? Bergabunglah dengan Massago dan kembangkan karir Anda.</p>
+                <a href="https://wa.me/6282386908721?text=Halo%20Massago,%20saya%20tertarik%20untuk%20bergabung%20sebagai%20praktisi." target="_blank" class="bg-brand-teal hover:bg-brand-blue text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 inline-block cta-button">
+                    Daftar sebagai Praktisi
+                </a>
             </div>
         </section>
     </main>
@@ -174,9 +237,9 @@
         
         <div class="container mx-auto px-6 text-center relative z-10">
             <p class="font-bold">Kontak & Informasi</p>
-            <p class="mt-2 text-slate-300"><strong>WhatsApp:</strong> 082386908721</p>
-            <p class="text-slate-300"><strong>Alamat:</strong> Jl. Parkit 09, Air Tawar Barat, Padang</p>
-            <p class="mt-4 text-slate-300"><strong>Media Sosial:</strong> <a href="#" class="underline hover:text-brand-teal">massago.unp</a></p>
+            <p class="mt-2 text-slate-300"><strong>WhatsApp <i class="bi bi-whatsapp"></i></strong> 082386604721</p>
+            <p class="text-slate-300"><strong>Alamat <i class="bi bi-geo-alt"></i>:</strong> Jl. Parkit 09, Air Tawar Barat, Padang</p>
+            <p class="mt-4 text-slate-300"><strong>Instagram <i class="bi bi-instagram"></i></strong>  <a href="#" class="underline hover:text-brand-teal">: massago.unp</a></p>
             <p class="mt-8 text-sm text-slate-400">© 2025 Massago Body Therapy. All Rights Reserved.</p>
         </div>
     </footer>
