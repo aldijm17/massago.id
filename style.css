@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-    font-size: clamp(2.25rem, 10vw, 3.75rem); /* Flexible typography */
+    font-size: clamp(2.25rem, 10vw, 3.75rem); 
 }
 
 h2 {
@@ -112,7 +112,6 @@ h2 {
     transform: translateY(0);
 }
 
-/* Scrollbar hiding */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
@@ -121,12 +120,11 @@ h2 {
     scrollbar-width: none;
 }
 
-/* Background scroll lock */
+
 .no-scroll {
     overflow: hidden;
 }
 
-/* Lazy Loading Skeleton */
 .skeleton {
     background-color: #e2e8f0;
     border-radius: 0.5rem;
@@ -147,7 +145,7 @@ h2 {
   transition: all 0.3s ease;
 }
 
-/* Accessibility: Reduced Motion */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -161,7 +159,7 @@ h2 {
         animation: none;
     }
 }
-/* Ornamen Background Responsif untuk Semua Section */
+
 .bg-ornaments {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M14.5 17.5c-2.5 2.5-6.5 2.5-9 0s-2.5-6.5 0-9 6.5-2.5 9 0 2.5 6.5 0 9z'%3E%3C/path%3E%3Cpath d='M12 8V2l-2.5 2.5'%3E%3C/path%3E%3Cpath d='M14.5 17.5C12 20 8 20 5.5 17.5S3 11.5 5.5 9s6.5-2.5 9 0'%3E%3C/path%3E%3Cpath d='M17 12h6v-2.5L19.5 7'%3E%3C/path%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M6 20 C3 20 3 17 6 17 C9 17 9 20 6 20 Z M10 17 C7 17 7 14 10 14 C13 14 13 17 10 17 Z M15 14 C12 14 12 11 15 11 C18 11 18 14 15 14 Z M19 11 C16 11 16 8 19 8 C22 8 22 11 19 11 Z'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -169,57 +167,11 @@ h2 {
     background-size: 200px, 150px;
 }
 
-/* Penyesuaian untuk layar kecil (HP) */
 @media (max-width: 767px) {
     .bg-ornaments {
         background-position: top 10px left -60px, bottom 10px right -50px;
         background-size: 150px, 120px;
     }
-}
-/* === ORNAMEN PIJAT UNTUK SETIAP SECTION === */
-
-/* Ornamen umum: motif daun lembut */
-.bg-ornament-leaf {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(75,134,180,0.05)' viewBox='0 0 24 24'%3E%3Cpath d='M20.29 3.86a1 1 0 0 0-1.42 0L4.63 18.1a1 1 0 0 0 1.42 1.42l14.24-14.24a1 1 0 0 0 0-1.42zM8 20h8v2H8z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: top 50px right -30px;
-  background-size: 250px;
-}
-
-/* Ornamen batu pijat (gelombang halus) */
-.bg-ornament-stone {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(42,77,105,0.04)' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C7.03 2 3 6.03 3 11c0 3.31 2.69 7.01 7.54 10.16.28.17.63.17.91 0C18.31 18.01 21 14.31 21 11c0-4.97-4.03-9-9-9z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: bottom -30px left -20px;
-  background-size: 220px;
-}
-
-/* Ornamen tetesan minyak aromaterapi */
-.bg-ornament-oil {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(75,134,180,0.05)' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C12 2 6 10 6 14c0 3.31 2.69 6 6 6s6-2.69 6-6c0-4-6-12-6-12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: top -20px left -10px;
-  background-size: 200px;
-}
-
-/* Ornamen bunga lembut untuk bagian hero */
-.bg-ornament-flower {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(255,255,255,0.07)' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c1.66 0 3 1.34 3 3 0 0 3-1 4 2s-2 5-2 5 3 2 2 5-4 2-4 2 0 3-3 3-3-3-3-3-3 1-4-2 2-5 2-5-3-2-2-5 4-2 4-2c0-1.66 1.34-3 3-3z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 400px;
-  opacity: 0.7;
-}
-
-/* Responsif: kecilkan ornamen di layar HP */
-@media (max-width: 767px) {
-  .bg-ornament-leaf,
-  .bg-ornament-stone,
-  .bg-ornament-oil,
-  .bg-ornament-flower {
-    background-size: 150px;
-    background-position: center;
-  }
 }
 
 @media (max-width: 768px) {
