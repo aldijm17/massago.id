@@ -192,4 +192,70 @@ window.addEventListener('scroll', () => {
     header.classList.remove('bg-white/90', 'backdrop-blur-sm');
   }
 });
+// --- BARU: FUNGSI UNTUK MODAL "JOIN US" ---
+    const joinUsModal = document.getElementById('join-us-modal');
+    const openJoinModalBtn = document.getElementById('open-join-modal');
+    const closeJoinModalBtn = document.getElementById('close-join-modal');
+    const joinUsForm = document.getElementById('join-us-form');
 
+    // Definisikan fungsi closeJoinModal di scope ini agar keydown listener bisa akses
+    let closeJoinModal = () => {};
+
+    // Pastikan elemen-elemen ada sebelum menambahkan event listener
+    if (joinUsModal && openJoinModalBtn && closeJoinModalBtn && joinUsForm) {
+        
+        const openJoinModal = () => {
+            joinUsModal.classList.remove('hidden');
+            joinUsModal.classList.add('show');
+            document.body.classList.add('no-scroll');
+        };
+
+        // Assign fungsi ke variabel di scope luar
+        closeJoinModal = () => {
+            joinUsModal.classList.remove('show');
+            joinUsModal.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        };
+
+        openJoinModalBtn.addEventListener('click', openJoinModal);
+        closeJoinModalBtn.addEventListener('click', closeJoinModal);
+
+        joinUsModal.addEventListener('click', (event) => {
+            if (event.target === joinUsModal) {
+                closeJoinModal();
+            }
+        });
+
+        joinUsForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama_join').value;
+            const telepon = document.getElementById('telepon_join').value;
+            const npwp = document.getElementById('npwp_join').value || 'Tidak diisi';
+            const pengalaman = document.getElementById('pengalaman_join').value;
+            
+            // Nomor WA tujuan (sama dengan yang di 'Join Us' a href)
+            const noTujuan = '6282386908721';
+            
+            const pesan = `Halo Massago, saya tertarik untuk bergabung sebagai praktisi.\n\nNama: ${nama}\nNo. Telepon: ${telepon}\nNPWP: ${npwp}\nPengalaman: ${pengalaman}\n\n dan berikut foto saya. Mohon informasinya lebih lanjut. Terima kasih.`;
+            
+            const urlWA = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
+            
+            window.open(urlWA, '_blank');
+            closeJoinModal();
+        });
+    }
+    
+    // --- MODIFIKASI: Close modal with Escape key (Handles both) ---
+    // Hapus listener keydown yang lama jika ada, dan ganti dengan ini
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (orderModal.classList.contains('show')) {
+                closeModal(); // Fungsi lama untuk order modal
+            }
+            // Pastikan joinUsModal ada sebelum cek classList
+            if (joinUsModal && joinUsModal.classList.contains('show')) {
+                closeJoinModal(); // Fungsi baru untuk join modal
+            }
+        }
+    });
