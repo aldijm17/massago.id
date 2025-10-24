@@ -4,11 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Massago Body Therapy - Relaksasi Profesional</title>
-    <link rel="icon" href="image/web-logo.png" style="border-radius: 100px;" type="image/png">
+    <link rel="icon" href="image/compressed/web-logo.svg" style="border-radius: 100px;" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+ <style>
+    /* Import Font dari Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap'); */
+
+/* Tambahan untuk mematikan animasi scroll di mobile */
+@media (max-width: 767px) {
     
+    .scroll-reveal {
+        /* * Paksa elemen untuk langsung terlihat (opacity: 1) 
+         * dan berada di posisi akhir (transform: 0) di mobile,
+         * menimpa style default .scroll-reveal.
+        */
+        opacity: 1;
+        transform: translateY(0);
+
+        /* * Ini adalah bagian terpenting:
+         * Matikan properti transisi.
+         * Jadi, bahkan jika JavaScript menambahkan kelas .animate,
+         * tidak akan ada animasi yang terjadi.
+        */
+        transition: none;
+    }
+
+    /* * Opsi ini untuk berjaga-jaga jika .animate
+     * sudah memiliki properti transisi sendiri
+    */
+    .scroll-reveal.animate {
+        transition: none;
+    }
+}
+
+:root {
+    --brand-teal: #4b86b4;
+    --brand-blue: #2a4d69;
+}
+
+/* Base styles & Mobile-first */
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 10vw, 3.75rem); 
+}
+
+h2 {
+    font-size: clamp(1.875rem, 8vw, 2.25rem);
+}
+
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('image/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-position 0.2s ease-out;
+    will-change: background-position;
+}
+
+
+/* Animasi & UX Improvements */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform; /* Memberitahu browser untuk optimasi */
+}
+
+.scroll-reveal.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for service cards */
+.service-card:nth-child(2) {
+    transition-delay: 200ms;
+}
+.service-card:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+/* Hover effects */
+.service-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+/* CTA Button Pulse */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.cta-button {
+    animation: pulse 2s infinite;
+}
+
+/* Active Nav Indicator */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-teal), var(--brand-blue));
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav-link.active::after,
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Modal Animations */
+.modal {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 100;  
+}
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modal-content {
+    transform: translateY(50px);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.skeleton {
+    background-color: #e2e8f0;
+    border-radius: 0.5rem;
+    animation: pulse-skeleton 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-skeleton {
+    50% {
+        opacity: .5;
+    }
+}
+.lazy-load {
+    display: none;
+}
+#testimonial-carousel {
+  will-change: transform;
+}
+.carousel-indicator {
+  transition: all 0.3s ease;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .cta-button {
+        animation: none;
+    }
+}
+
+.bg-ornaments {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M14.5 17.5c-2.5 2.5-6.5 2.5-9 0s-2.5-6.5 0-9 6.5-2.5 9 0 2.5 6.5 0 9z'%3E%3C/path%3E%3Cpath d='M12 8V2l-2.5 2.5'%3E%3C/path%3E%3Cpath d='M14.5 17.5C12 20 8 20 5.5 17.5S3 11.5 5.5 9s6.5-2.5 9 0'%3E%3C/path%3E%3Cpath d='M17 12h6v-2.5L19.5 7'%3E%3C/path%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 24 24' fill='rgba(42,77,105,0.04)'%3E%3Cpath d='M6 20 C3 20 3 17 6 17 C9 17 9 20 6 20 Z M10 17 C7 17 7 14 10 14 C13 14 13 17 10 17 Z M15 14 C12 14 12 11 15 11 C18 11 18 14 15 14 Z M19 11 C16 11 16 8 19 8 C22 8 22 11 19 11 Z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: top 0px left -50px, bottom 0px right -40px;
+    background-size: 200px, 150px;
+}
+
+@media (max-width: 767px) {
+    .bg-ornaments {
+        background-position: top 10px left -60px, bottom 10px right -50px;
+        background-size: 150px, 120px;
+    }
+}
+
+
+
+#services .bi {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#services .p-8:hover .bi {
+  transform: scale(1.1);
+  color: var(--brand-blue);
+}
+header {
+  transition: all 0.3s ease;
+}
+
+.logo-text {
+  background: linear-gradient(90deg, #2a4d69, #4b86b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logo-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+  0% { opacity: 0.8; filter: brightness(1); }
+  100% { opacity: 1; filter: brightness(1.3); }
+}
+
+ </style>    
     <script>
         tailwind.config = {
             theme: {
@@ -33,7 +265,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 flex justify-between items-center h-16">
             <a href="#" class="flex items-center gap-x-3">
-                <img src="image/nav-logo2.png" alt="Massago Logo" class="h-12 transition-all duration-300">
+                <img src="image/compressed/nav-logo2.svg" alt="Massago Logo" class="h-12 transition-all duration-300">
                 <span class="font-display font-bold text-xl md:text-2xl logo-text">Massago</span>
             </a>
             
@@ -340,6 +572,282 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+    // --- FUNGSI UNTUK MENU MOBILE ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = mobileMenu.querySelectorAll('.nav-link');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Auto-close mobile menu on link click
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // --- SCROLL ANIMATION & LAZY LOADING DENGAN INTERSECTION OBSERVER ---
+    const animatedElements = document.querySelectorAll(".scroll-reveal");
+    const lazyLoadImages = document.querySelectorAll(".lazy-load");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate elements
+                if (entry.target.classList.contains('scroll-reveal')) {
+                    entry.target.classList.add("animate");
+                }
+                
+                // Lazy load images
+                if (entry.target.classList.contains('lazy-load')) {
+                    const image = entry.target;
+                    const skeleton = image.nextElementSibling;
+                    
+                    image.src = image.dataset.src;
+                    image.onload = () => {
+                        image.style.display = 'block';
+                        skeleton.style.display = 'none';
+                    };
+                }
+                
+                // Stop observing the element once it's visible
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => observer.observe(el));
+    lazyLoadImages.forEach(img => observer.observe(img));
+
+    // --- FUNGSI UNTUK NAVBAR AKTIF SAAT SCROLL (SCROLLSPY) ---
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-links .nav-link");
+
+    const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${id}`) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+
+    sections.forEach(section => spyObserver.observe(section));
+
+    // --- FUNGSI BARU UNTUK FORM ORDER POP-UP (MODAL) ---
+    const orderModal = document.getElementById('order-modal');
+    const openOrderButtons = document.querySelectorAll('#open-order-modal, #open-order-modal-2');
+    const closeOrderModalBtn = document.getElementById('close-order-modal');
+    const whatsappForm = document.getElementById('whatsapp-form');
+
+    const openModal = () => {
+        orderModal.classList.remove('hidden');
+        orderModal.classList.add('show');
+        document.body.classList.add('no-scroll'); // Background scroll lock
+    };
+
+    const closeModal = () => {
+        orderModal.classList.remove('show');
+        orderModal.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+    };
+
+    openOrderButtons.forEach(btn => btn.addEventListener('click', openModal));
+    closeOrderModalBtn.addEventListener('click', closeModal);
+
+    orderModal.addEventListener('click', (event) => {
+        if (event.target === orderModal) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && orderModal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
+    whatsappForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const nama = document.getElementById('nama').value;
+        const telepon = document.getElementById('telepon').value;
+        const alamat = document.getElementById('alamat').value;
+        const noTujuan = '6282386604721';
+        const pesan = `Halo Massago, saya ingin memesan layanan pijat.\n\nNama : ${nama}\nNo. Telepon : ${telepon}\nAlamat : ${alamat}\n\nMohon informasinya lebih lanjut. Terima kasih.`;
+        const urlWA = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
+        
+        window.open(urlWA, '_blank');
+        closeModal();
+    });
+});
+// --- TESTIMONIAL CAROUSEL ---
+const carousel = document.getElementById('testimonial-carousel');
+const slides = carousel.children;
+const totalSlides = slides.length;
+const nextBtn = document.getElementById('next-testimonial');
+const prevBtn = document.getElementById('prev-testimonial');
+const indicators = document.querySelectorAll('.carousel-indicator');
+
+let index = 0;
+
+function updateCarousel() {
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+  indicators.forEach((dot, i) => {
+    dot.classList.toggle('bg-brand-teal', i === index);
+    dot.classList.toggle('bg-slate-400', i !== index);
+    dot.classList.toggle('opacity-70', i === index);
+    dot.classList.toggle('opacity-50', i !== index);
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % totalSlides;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+});
+
+// Klik indikator manual
+indicators.forEach(dot => {
+  dot.addEventListener('click', () => {
+    index = parseInt(dot.dataset.slide);
+    updateCarousel();
+  });
+});
+
+// Auto slide setiap 6 detik
+setInterval(() => {
+  index = (index + 1) % totalSlides;
+  updateCarousel();
+}, 6000);
+
+// --- EFEK PARALAKS UNTUK HERO SECTION ---
+// --- EFEK PARALAKS UNTUK HERO SECTION ---
+window.addEventListener('scroll', () => {
+
+    // Cek apakah layar lebih besar dari 768px (bukan mobile)
+    if (window.innerWidth > 768) { 
+        const hero = document.querySelector('.hero-bg');
+        if (!hero) return;
+
+        // Ambil nilai scroll dan sesuaikan kecepatan
+        const offset = window.scrollY * 0.4; // kecepatan efek
+        hero.style.backgroundPositionY = `${offset}px`;
+
+    } else {
+        // Jika di mobile, kembalikan posisi background ke default
+        const hero = document.querySelector('.hero-bg');
+        if (hero) {
+            // Setel kembali ke 'center' agar tidak bergeser
+            hero.style.backgroundPositionY = 'center'; 
+        }
+    }
+});
+// --- NAVBAR SHRINK ON SCROLL ---
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    header.classList.add('shadow-md', 'py-2');
+  } else {
+    header.classList.remove('shadow-md', 'py-2');
+  }
+});
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    header.classList.add('bg-white/90', 'backdrop-blur-sm');
+  } else {
+    header.classList.remove('bg-white/90', 'backdrop-blur-sm');
+  }
+});
+// --- BARU: FUNGSI UNTUK MODAL "JOIN US" ---
+    const joinUsModal = document.getElementById('join-us-modal');
+    const openJoinModalBtn = document.getElementById('open-join-modal');
+    const closeJoinModalBtn = document.getElementById('close-join-modal');
+    const joinUsForm = document.getElementById('join-us-form');
+
+    // Definisikan fungsi closeJoinModal di scope ini agar keydown listener bisa akses
+    let closeJoinModal = () => {};
+
+    // Pastikan elemen-elemen ada sebelum menambahkan event listener
+    if (joinUsModal && openJoinModalBtn && closeJoinModalBtn && joinUsForm) {
+        
+        const openJoinModal = () => {
+            joinUsModal.classList.remove('hidden');
+            joinUsModal.classList.add('show');
+            document.body.classList.add('no-scroll');
+        };
+
+        // Assign fungsi ke variabel di scope luar
+        closeJoinModal = () => {
+            joinUsModal.classList.remove('show');
+            joinUsModal.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        };
+
+        openJoinModalBtn.addEventListener('click', openJoinModal);
+        closeJoinModalBtn.addEventListener('click', closeJoinModal);
+
+        joinUsModal.addEventListener('click', (event) => {
+            if (event.target === joinUsModal) {
+                closeJoinModal();
+            }
+        });
+
+        joinUsForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama_join').value;
+            const telepon = document.getElementById('telepon_join').value;
+            const npwp = document.getElementById('npwp_join').value || 'Tidak diisi';
+            const pengalaman = document.getElementById('pengalaman_join').value;
+            
+            // Nomor WA tujuan (sama dengan yang di 'Join Us' a href)
+            const noTujuan = '6282386908721';
+            
+            const pesan = `Halo Massago, saya tertarik untuk bergabung sebagai praktisi.\n\nNama: ${nama}\nNo. Telepon: ${telepon}\nNPWP: ${npwp}\nPengalaman: ${pengalaman}\n\n dan berikut foto saya. Mohon informasinya lebih lanjut. Terima kasih.`;
+            
+            const urlWA = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
+            
+            window.open(urlWA, '_blank');
+            closeJoinModal();
+        });
+    }
+    
+    // --- MODIFIKASI: Close modal with Escape key (Handles both) ---
+    // Hapus listener keydown yang lama jika ada, dan ganti dengan ini
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            if (orderModal.classList.contains('show')) {
+                closeModal(); // Fungsi lama untuk order modal
+            }
+            // Pastikan joinUsModal ada sebelum cek classList
+            if (joinUsModal && joinUsModal.classList.contains('show')) {
+                closeJoinModal(); // Fungsi baru untuk join modal
+            }
+        }
+    });
+
+    </script>
 </body>
 </html>

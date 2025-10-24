@@ -1,5 +1,32 @@
 /* Import Font dari Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700&display=swap'); */
+
+/* Tambahan untuk mematikan animasi scroll di mobile */
+@media (max-width: 767px) {
+    
+    .scroll-reveal {
+        /* * Paksa elemen untuk langsung terlihat (opacity: 1) 
+         * dan berada di posisi akhir (transform: 0) di mobile,
+         * menimpa style default .scroll-reveal.
+        */
+        opacity: 1;
+        transform: translateY(0);
+
+        /* * Ini adalah bagian terpenting:
+         * Matikan properti transisi.
+         * Jadi, bahkan jika JavaScript menambahkan kelas .animate,
+         * tidak akan ada animasi yang terjadi.
+        */
+        transition: none;
+    }
+
+    /* * Opsi ini untuk berjaga-jaga jika .animate
+     * sudah memiliki properti transisi sendiri
+    */
+    .scroll-reveal.animate {
+        transition: none;
+    }
+}
 
 :root {
     --brand-teal: #4b86b4;
@@ -175,11 +202,8 @@ h2 {
     }
 }
 
-@media (max-width: 768px) {
-    .hero-bg {
-        background-attachment: scroll;
-    }
-}
+
+
 #services .bi {
   transition: transform 0.3s ease, color 0.3s ease;
 }

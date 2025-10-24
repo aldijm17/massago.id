@@ -168,13 +168,26 @@ setInterval(() => {
 }, 6000);
 
 // --- EFEK PARALAKS UNTUK HERO SECTION ---
+// --- EFEK PARALAKS UNTUK HERO SECTION ---
 window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero-bg');
-    if (!hero) return;
 
-    // Ambil nilai scroll dan sesuaikan kecepatan
-    const offset = window.scrollY * 0.4; // kecepatan efek
-    hero.style.backgroundPositionY = `${offset}px`;
+    // Cek apakah layar lebih besar dari 768px (bukan mobile)
+    if (window.innerWidth > 768) { 
+        const hero = document.querySelector('.hero-bg');
+        if (!hero) return;
+
+        // Ambil nilai scroll dan sesuaikan kecepatan
+        const offset = window.scrollY * 0.4; // kecepatan efek
+        hero.style.backgroundPositionY = `${offset}px`;
+
+    } else {
+        // Jika di mobile, kembalikan posisi background ke default
+        const hero = document.querySelector('.hero-bg');
+        if (hero) {
+            // Setel kembali ke 'center' agar tidak bergeser
+            hero.style.backgroundPositionY = 'center'; 
+        }
+    }
 });
 // --- NAVBAR SHRINK ON SCROLL ---
 const header = document.querySelector('header');
