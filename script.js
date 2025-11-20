@@ -272,3 +272,44 @@ window.addEventListener('scroll', () => {
             }
         }
     });
+// --- PRACTITIONER CAROUSEL ---
+const pCarousel = document.getElementById('practitioner-carousel');
+
+// Check if the carousel element exists on the page
+if (pCarousel) {
+    const pSlides = pCarousel.children;
+    const totalPSlides = pSlides.length;
+    const nextPBtn = document.getElementById('next-practitioner');
+    const prevPBtn = document.getElementById('prev-practitioner');
+    const pIndicators = document.querySelectorAll('.practitioner-indicator');
+
+    let pIndex = 0;
+
+    function updatePractitionerCarousel() {
+        if (!pCarousel) return; // Safeguard
+        pCarousel.style.transform = `translateX(-${pIndex * 100}%)`;
+        pIndicators.forEach((dot, i) => {
+            dot.classList.toggle('bg-brand-teal', i === pIndex);
+            dot.classList.toggle('bg-slate-400', i !== pIndex);
+            dot.classList.toggle('opacity-70', i === pIndex);
+            dot.classList.toggle('opacity-50', i !== pIndex);
+        });
+    }
+
+    nextPBtn.addEventListener('click', () => {
+        pIndex = (pIndex + 1) % totalPSlides;
+        updatePractitionerCarousel();
+    });
+
+    prevPBtn.addEventListener('click', () => {
+        pIndex = (pIndex - 1 + totalPSlides) % totalPSlides;
+        updatePractitionerCarousel();
+    });
+
+    pIndicators.forEach(dot => {
+        dot.addEventListener('click', () => {
+            pIndex = parseInt(dot.dataset.slide);
+            updatePractitionerCarousel();
+        });
+    });
+}  
